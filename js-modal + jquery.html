@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Сайт</title>
+		<meta charset="utf-8">
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	</head>
+	<body>
+		<button class="btn btn-info" data-toggle="modal" data-target="#my_modal">Всплывающее окно</button>
+		
+		<!-- fade - плавное появление блока -->
+		<!-- tabindex = -1 - закрытие окна по нажатию esc  -->
+		<div id="my_modal" class="modal fade" tabindex="-1">
+			<!-- modal-dialog - ширина и отступы для модального окна -->
+			<div class="modal-dialog modal-lg">
+				<!-- modal-content - эффекты для окна -->
+				<div class="modal-content">
+					<!-- modal-header - шапка для окна -->
+					<div class="modal-header">
+						<button class="close" data-dismiss="modal">x</button>
+						<h4 class="modal-title">Заголовок окна</h4>
+					</div>
+					<div class="modal-body">
+						Увага!
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-danger" data-dismiss="modal">Закрыть</button>
+					</div>	
+				</div>
+			</div>
+		</div>
+
+		<!-- jQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+		<!-- открывается модальное окно при открытии страницы -->
+		<script>
+			$('#my_modal').modal("show"); // hide, toggle-замена состояние на противополож.
+
+			$('#my_modal').on('hidden.bs.modal', function (event) {
+				alert("Выполнено после полного закрытия");
+			});
+
+			$('#my_modal').on('hide.bs.modal', function(event) {
+				alert("Выполнено после попытки закрыть");
+			});
+
+			$('#my_modal').on('show.bs.modal', function(event) {
+				alert("Выполнено до показа окна");
+			});			
+		</script>
+	</body>
+</html>
